@@ -7,8 +7,13 @@ import { Animal } from './animal.model';
   template:`
 
   <div class="well">
+    <select (change)="onChange($event.target.value)">
+      <option value="allAnimals" selected="selected">>All Animals</option>
+      <option value="ageOld">Animals 5 years old</option>
+      <option value="ageYoung">Animals under 5 years old</option>
+    </select>
     <ul>
-      <li *ngFor="let currentAnimal of childAnimalList">
+      <li *ngFor="let currentAnimal of childAnimalList | age:filterByAge">
         <p style="color:#6640c4; font-size:35px;">{{currentAnimal.species}}</p><br>
         Name: {{currentAnimal.name}}  <br>
         Age: {{currentAnimal.age}}  <br>
@@ -30,6 +35,13 @@ import { Animal } from './animal.model';
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter();
+
+  filterByAge: string = "allAnimals";
+
+  onChange(optionFromMenu) {
+    this.filterByAge = optionFromMenu;
+  }
+
 
   editButtonHasBeenClicked(animalToEdit: Animal) {
     this.clickSender.emit(animalToEdit);
