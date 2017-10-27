@@ -24,9 +24,40 @@ import { Component } from '@angular/core';
         Sex:  {{currentAnimal.sex}} <br>
         Likes:  {{currentAnimal.likes}} <br>
         Dislikes:  {{currentAnimal.dislikes}} <br>
-        <button (click)="editAnimal()">Edit!</button> <br>
+        <button (click)="editAnimal(currentAnimal)">Edit!</button> <br>
       </li>
       <hr>
+      <div>
+        <h3>{{selectedAnimal.species}}</h3>
+        <h3>Edit Animal</h3>
+        <label>Enter Animal Description:</label>
+        <input [(ngModel)]="selectedAnimal.species">
+        <br>
+        <label>Enter Animal Name:</label>
+        <input [(ngModel)]="selectedAnimal.name">
+        <br>
+        <label>Enter Animal Age:</label>
+        <input [(ngModel)]="selectedAnimal.age">
+        <br>
+        <label>Enter Animal Diet:</label>
+        <input [(ngModel)]="selectedAnimal.diet">
+        <br>
+        <label>Enter Animal Location:</label>
+        <input [(ngModel)]="selectedAnimal.location">
+        <br>
+        <label>Enter Animal Caretakers:</label>
+        <input [(ngModel)]="selectedAnimal.caretakers">
+        <br>
+        <label>Enter Animal Sex:</label>
+        <input [(ngModel)]="selectedAnimal.sex">
+        <br>
+        <label>Enter Animal Likes:</label>
+        <input [(ngModel)]="selectedAnimal.likes">
+        <br>
+        <label>Enter Animal Dislikes:</label>
+        <input [(ngModel)]="selectedAnimal.dislikes">
+        <br>
+      </div>
     </ul>
   </div>
 
@@ -51,8 +82,8 @@ export class AppComponent {
   ];
   selectedAnimal: Animal = this.animals[0];
 
-  editAnimal() {
-   alert("You just requested to edit a Animal!");
+  editAnimal(clickedAnimal) {
+   this.selectedAnimal = clickedAnimal;
  }
 
 }
