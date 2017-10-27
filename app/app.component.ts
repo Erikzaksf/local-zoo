@@ -14,15 +14,15 @@ import { Component } from '@angular/core';
 
   <div class="well">
     <ul>
-      <li style="font-size: 30px;">         {{animalInfo.species}}</li>
-      <li>Name:     {{animalInfo.name}}</li>
-      <li>Age:      {{animalInfo.age}}</li>
-      <li>Diet:     {{animalInfo.diet}}</li>
-      <li>location:    {{animalInfo.location}}</li>
-      <li>Caretakers: {{animalInfo.caretakers}}</li>
-      <li>Sex:       {{animalInfo.sex}}</li>
-      <li>Likes:       {{animalInfo.likes}}</li>
-      <li>Dislikes:         {{animalInfo.dislikes}}</li>
+      <li style="font-size: 30px;">         {{firstAnimal.species}}</li>
+      <li>Name:     {{firstAnimal.name}}</li>
+      <li>Age:      {{firstAnimal.age}}</li>
+      <li>Diet:     {{firstAnimal.diet}}</li>
+      <li>location:    {{firstAnimal.location}}</li>
+      <li>Caretakers: {{firstAnimal.caretakers}}</li>
+      <li>Sex:       {{firstAnimal.sex}}</li>
+      <li>Likes:       {{firstAnimal.likes}}</li>
+      <li>Dislikes:         {{firstAnimal.dislikes}}</li>
     </ul>
   </div>
 
@@ -40,15 +40,12 @@ export class AppComponent {
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
-  animalInfo = {
-    species: "Arctic Fox",
-    name: "Moon",
-    age: 2,
-    diet: "Carnivore",
-    location: "Northern Trail",
-    caretakers: 5,
-    sex: "Female",
-    likes: "Cool shade",
-    dislikes: "Loud noises",
-  }
+
+  firstAnimal: Animal = new Animal("Cheetah", "Fast", 7, "Carnivore", "North Savanah Exhibit", 2, "Male", "Playing with toys", "Loud Noises")
+
+}
+
+export class Animal {
+  constructor( public species: string, public name: string, public age: number, public diet: string, public location: string, public caretakers: number, public sex: string, public likes: string, public dislikes: string ) { }
+
 }
