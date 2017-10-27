@@ -14,15 +14,16 @@ import { Component } from '@angular/core';
 
   <div class="well">
     <ul>
-      <li style="font-size: 30px;">         {{firstAnimal.species}}</li>
-      <li>Name:     {{firstAnimal.name}}</li>
-      <li>Age:      {{firstAnimal.age}}</li>
-      <li>Diet:     {{firstAnimal.diet}}</li>
-      <li>location:    {{firstAnimal.location}}</li>
-      <li>Caretakers: {{firstAnimal.caretakers}}</li>
-      <li>Sex:       {{firstAnimal.sex}}</li>
-      <li>Likes:       {{firstAnimal.likes}}</li>
-      <li>Dislikes:         {{firstAnimal.dislikes}}</li>
+      <li *ngFor="let currentAnimal of animals" style="font-size: 30px;">  {{currentAnimal.species}}  </li>
+      <li *ngFor="let currentAnimal of animals"> Name: {{currentAnimal.name}}  </li>
+      <li *ngFor="let currentAnimal of animals"> Age: {{currentAnimal.age}}  </li>
+      <li *ngFor="let currentAnimal of animals"> Diet: {{currentAnimal.diet}}  </li>
+      <li *ngFor="let currentAnimal of animals"> location:  {{currentAnimal.location}}  </li>
+      <li *ngFor="let currentAnimal of animals"> location:  {{currentAnimal.location}}  </li>
+      <li *ngFor="let currentAnimal of animals"> Caretakers: {{currentAnimal.caretakers}}  </li>
+      <li *ngFor="let currentAnimal of animals"> Sex:  {{currentAnimal.sex}}  </li>
+      <li *ngFor="let currentAnimal of animals"> Likes:  {{currentAnimal.likes}}  </li>
+      <li *ngFor="let currentAnimal of animals"> Dislikes:  {{currentAnimal.dislikes}}  <button (click)="editAnimal()">Edit!</button> </li>
     </ul>
   </div>
 
@@ -41,7 +42,13 @@ export class AppComponent {
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
 
-  firstAnimal: Animal = new Animal("Cheetah", "Fast", 7, "Carnivore", "North Savanah Exhibit", 2, "Male", "Playing with toys", "Loud Noises")
+  animals: Animal[] = [
+    new Animal("Cheetah", "Fast", 7, "Carnivore", "North Savanah Exhibit", 2, "Male", "Playing with toys", "Loud Noises"),
+  ];
+
+  editAnimal() {
+   alert("You just requested to edit a Animal!");
+ }
 
 }
 
