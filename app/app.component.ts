@@ -14,16 +14,19 @@ import { Component } from '@angular/core';
 
   <div class="well">
     <ul>
-      <li *ngFor="let currentAnimal of animals" style="font-size: 30px;">  {{currentAnimal.species}}  </li>
-      <li *ngFor="let currentAnimal of animals"> Name: {{currentAnimal.name}}  </li>
-      <li *ngFor="let currentAnimal of animals"> Age: {{currentAnimal.age}}  </li>
-      <li *ngFor="let currentAnimal of animals"> Diet: {{currentAnimal.diet}}  </li>
-      <li *ngFor="let currentAnimal of animals"> location:  {{currentAnimal.location}}  </li>
-      <li *ngFor="let currentAnimal of animals"> location:  {{currentAnimal.location}}  </li>
-      <li *ngFor="let currentAnimal of animals"> Caretakers: {{currentAnimal.caretakers}}  </li>
-      <li *ngFor="let currentAnimal of animals"> Sex:  {{currentAnimal.sex}}  </li>
-      <li *ngFor="let currentAnimal of animals"> Likes:  {{currentAnimal.likes}}  </li>
-      <li *ngFor="let currentAnimal of animals"> Dislikes:  {{currentAnimal.dislikes}}  <button (click)="editAnimal()">Edit!</button> </li>
+      <li *ngFor="let currentAnimal of animals">
+        <p style="color:#6640c4; font-size:35px;">{{currentAnimal.species}}</p><br>
+        Name: {{currentAnimal.name}}  <br>
+        Age: {{currentAnimal.age}}  <br>
+        Diet: {{currentAnimal.diet}}  <br>
+        Location:  {{currentAnimal.location}} <br>
+        Caretakers: {{currentAnimal.caretakers}} <br>
+        Sex:  {{currentAnimal.sex}} <br>
+        Likes:  {{currentAnimal.likes}} <br>
+        Dislikes:  {{currentAnimal.dislikes}} <br>
+        <button (click)="editAnimal()">Edit!</button> <br>
+      </li>
+      <hr>
     </ul>
   </div>
 
@@ -44,7 +47,9 @@ export class AppComponent {
 
   animals: Animal[] = [
     new Animal("Cheetah", "Fast", 7, "Carnivore", "North Savanah Exhibit", 2, "Male", "Playing with toys", "Loud Noises"),
+    new Animal("Zeebra", "Stipes", 10, "Herbivore", "North Savanah Exhibit", 3, "Female", "Brushings", "Loud Noises, fast movement")
   ];
+  selectedAnimal: Animal = this.animals[0];
 
   editAnimal() {
    alert("You just requested to edit a Animal!");
